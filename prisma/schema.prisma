@@ -46,7 +46,6 @@ model Course {
 
   @@index([categoryId])
   @@fulltext([title])
-  
 }
 
 model Attachment {
@@ -69,7 +68,7 @@ model Category {
   courses   Course[]
 
   createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  updatedAt DateTime   @default(now())
 }
 
 model Chapter {
@@ -118,7 +117,6 @@ model UserProgress {
   @@index([chapterId])
   @@unique([userId, chapterId])
 }
-
 
 model Purchase {
   id          String     @id @default(auto()) @map("_id") @db.ObjectId
